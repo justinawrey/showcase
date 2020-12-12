@@ -1,10 +1,11 @@
 <script>
+  import shineSun from "./Sun.svelte";
   import invertColors from "../theme/invert";
 
-  let light = false;
+  let dark = true;
 
   $: {
-    light;
+    dark;
     invertColors();
   }
 </script>
@@ -16,9 +17,22 @@
     right: 0px;
     margin: 0.4rem;
   }
+
+  .checkbox {
+    display: none;
+  }
 </style>
 
-<label class="corner">
-  <input type="checkbox" bind:checked={light} />
-  <span class="slider round" />
-</label>
+<!-- <div class="corner">
+  <input
+    class="checkbox"
+    type="checkbox"
+    aria-label="Enable light theme?"
+    bind:checked={light} />
+  <shineSun />
+</div> -->
+<input
+  class="corner"
+  type="checkbox"
+  aria-label="Enable light theme?"
+  bind:checked={dark} />

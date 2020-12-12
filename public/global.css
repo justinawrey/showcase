@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
 :root {
-  --darkest: #273043;
-  --lightest: #EFF6EE;
+  --darkest-h: 221;
+  --darkest-s: 26%;
+  --darkest-l: 21%;
+  --darkest: hsl(var(--darkest-h), var(--darkest-s), var(--darkest-l));
+
+  --lightest-h: 113;
+  --lightest-s: 31%;
+  --lightest-l: 95%;
+  --lightest: hsl(var(--lightest-h), var(--lightest-s), var(--lightest-l));
 
   --fs-lg: 4rem;
   --fs-md: 2rem;

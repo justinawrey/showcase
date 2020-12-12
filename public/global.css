@@ -7,6 +7,8 @@
   --fs-lg: 4rem;
   --fs-md: 2rem;
   --fs-sm: 1.5rem;
+
+  --trans-lg: 500ms
 }
 
 html, button {
@@ -21,6 +23,7 @@ html, body {
 }
 
 body {
+  transition: background-color var(--trans-lg);
   display: flex;
   justify-content: center;
   align-items: center;

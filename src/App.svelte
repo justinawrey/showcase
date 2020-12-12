@@ -13,6 +13,7 @@
     padding: 0.4rem 0.8rem;
     cursor: pointer;
     font-weight: bold;
+    transition: color var(--trans-lg);
   }
 </style>
 

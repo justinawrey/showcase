@@ -7,16 +7,22 @@
     "start": "sirv public"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.0.0",
     "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-size-snapshot": "^0.12.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.0.0"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
-  }
+  },
+  "browserslist": "> 0.25%, not dead"
 }

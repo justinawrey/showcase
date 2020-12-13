@@ -1,3 +1,6 @@
+<h1 class="header">Justin Awrey</h1>
+<h2 class="subheader">One stop web designer + developer.</h2>
+
 <style>
   .header,
   .subheader {
@@ -16,6 +19,3 @@
     margin: 0.5rem;
   }
 </style>
-
-<h1 class="header">Justin Awrey</h1>
-<h2 class="subheader">One stop web designer + developer.</h2>

@@ -1,9 +1,12 @@
 import svelte from 'rollup-plugin-svelte';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import progress from 'rollup-plugin-progress';
+import { terser } from 'rollup-plugin-terser';
+import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,6 +40,9 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		production && sizeSnapshot(),
+		babel({ babelHelpers: 'bundled' }),
+		progress(),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production

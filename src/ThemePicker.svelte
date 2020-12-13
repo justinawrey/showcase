@@ -10,19 +10,6 @@
   }
 </script>
 
-<style>
-  .corner {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    margin: 0.4rem;
-  }
-
-  .checkbox {
-    display: none;
-  }
-</style>
-
 <!-- <div class="corner">
   <input
     class="checkbox"
@@ -35,4 +22,18 @@
   class="corner"
   type="checkbox"
   aria-label="Enable light theme?"
-  bind:checked={dark} />
+  bind:checked={dark}
+/>
+
+<!-->
+  .corner {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0.4rem;
+  }
+
+  .checkbox {
+    display: none;
+  }
+</!-->

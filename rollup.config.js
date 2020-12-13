@@ -53,7 +53,8 @@ export default {
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		postcss({
-			extract: path.resolve('public', 'build', 'bundle.css')
+			extract: path.resolve('public', 'build', 'bundle.css'),
+			minimize: true
 		}),
 
 		// If you have external dependencies installed from

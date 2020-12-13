@@ -7,7 +7,7 @@ import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
-import path from 'path'
+import path from 'path';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -42,7 +42,6 @@ export default {
 	},
 	plugins: [
 		babel({ babelHelpers: 'bundled' }),
-		progress(),
 		svelte({
 			compilerOptions: {
 				dev: !production
@@ -50,7 +49,7 @@ export default {
 		}),
 		postcss({
 			extract: path.resolve('public', 'build', 'bundle.css'),
-			minimize: true,
+			minimize: production,
 			config: {
 				path: 'postcss.config.js',
 			},
@@ -60,18 +59,11 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-		production && sizeSnapshot(),
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
 		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
 		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+		production && sizeSnapshot(),
+		progress(),
 	],
 	watch: {
 		clearScreen: false

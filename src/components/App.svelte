@@ -1,6 +1,9 @@
 <script>
   import ThemePicker from "./ThemePicker.svelte";
   import Headline from "./Headline.svelte";
+
+  const another = "ok";
+  const test = `lool ${another}`;
 </script>
 
 <ThemePicker />

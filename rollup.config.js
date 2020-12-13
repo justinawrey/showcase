@@ -41,11 +41,14 @@ export default {
 		file: path.resolve('public', 'build', 'bundle.js')
 	},
 	plugins: [
-		babel({ babelHelpers: 'bundled' }),
 		svelte({
 			compilerOptions: {
 				dev: !production
 			}
+		}),
+		babel({
+			extensions: [".js", ".mjs", ".html", ".svelte"],
+			babelHelpers: 'bundled'
 		}),
 		postcss({
 			extract: path.resolve('public', 'build', 'bundle.css'),

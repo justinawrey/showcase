@@ -3,10 +3,11 @@ import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
-import css from 'rollup-plugin-css-only';
+import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
+import path from 'path'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -51,7 +52,9 @@ export default {
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
-		css({ output: 'bundle.css' }),
+		postcss({
+			extract: path.resolve('public', 'build', 'bundle.css')
+		}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In

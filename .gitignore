@@ -1,5 +1,7 @@
 /node_modules/
 /public/build/
+/public/components/
+/src/$__*.js
 
 .DS_Store
 .size-snapshot.json

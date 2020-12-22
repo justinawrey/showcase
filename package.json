@@ -4,7 +4,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public",
+    "clean": "rm -rf public/build && rm -rf public/components && find . -type f -name '$__*' -exec rm {} \\;"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

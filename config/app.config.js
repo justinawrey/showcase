@@ -5,6 +5,8 @@ import postcss from 'rollup-plugin-postcss';
 import livereload from 'rollup-plugin-livereload';
 import path from 'path';
 import getCommonPlugins from './common.config';
+// also leverage netlify builtins -- cache invalidation w/ chunk hashing
+// and automatic brotli compression 
 
 const production = !process.env.ROLLUP_WATCH;
 

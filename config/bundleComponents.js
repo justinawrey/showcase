@@ -85,8 +85,19 @@ export default function bundleComponents({ inDir = './src/components', outDir = 
       process.on('SIGINT', cleanFiles);
     },
 
-    watchChange() {
+    watchChange(id, change) {
       process.off('SIGINT', cleanFiles);
+
+      const name = id.slice(id.lastIndexOf('/') + 1);
+      console.log('change', change.event)
+      console.log('id', name)
+
+      if (change.event === 'delete') {
+        console.log(`./src/$__${name.replace('.svelte', '.js')}`)
+        fs.unlinkSync(`./src/$__${name.replace('.svelte', '.js')}`)
+      } else if (change.event === 'create') {
+
+      }
     }
   };
 }

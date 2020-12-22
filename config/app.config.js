@@ -32,7 +32,7 @@ function serve() {
 export default {
   input: 'src/main.js',
   output: {
-    sourcemap: true,
+    sourcemap: !production,
     format: 'iife',
     name: 'app',
     file: path.resolve('public', 'build', 'bundle.js')
@@ -42,6 +42,7 @@ export default {
     postcss({
       extract: path.resolve('public', 'build', 'bundle.css'),
       minimize: production,
+      sourceMap: !production,
       config: {
         path: 'postcss.config.js',
       },

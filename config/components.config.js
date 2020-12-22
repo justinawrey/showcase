@@ -13,6 +13,7 @@ export default {
   plugins: [
     ...getCommonPlugins(),
     postcss({
+      sourceMap: !production,
       config: {
         path: 'postcss.config.js',
       },

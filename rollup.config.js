@@ -1,6 +1,10 @@
-import { module, noModule } from './config/app.config';
-import components from './config/components.config';
-
+import appConfig from './config/app.config';
+import componentsConfig from './config/components.config';
 const production = !process.env.ROLLUP_WATCH;
 
-export default production ? [module, noModule] : [noModule, components]
+const configs = [appConfig];
+if (!production) {
+	configs.push(componentsConfig);
+}
+
+export default configs;

@@ -31,28 +31,7 @@ function serve() {
   };
 }
 
-export const module = {
-  input: 'src/main.js',
-  output: {
-    name: 'app-esm',
-    format: 'es',
-    file: path.resolve('public', 'build', 'bundle-esm.mjs')
-  },
-  plugins: [
-    ...getCommonPlugins(),
-    postcss({
-      extract: path.resolve('public', 'build', 'bundle.css'),
-      minimize: true,
-      config: {
-        path: 'postcss.config.js',
-      },
-    }),
-    terser(),
-    sizeSnapshot(),
-  ],
-};
-
-export const noModule = {
+export default {
   input: 'src/main.js',
   output: {
     sourcemap: !production,
@@ -82,4 +61,4 @@ export const noModule = {
   watch: {
     clearScreen: false
   }
-};
+}

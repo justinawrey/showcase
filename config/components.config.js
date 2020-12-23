@@ -1,10 +1,6 @@
 import getCommonPlugins from "./common.config";
 import bundleComponents from "./bundleComponents";
-import postcss from 'rollup-plugin-postcss';
-import livereload from 'rollup-plugin-livereload';
 import path from 'path'
-
-const production = !process.env.ROLLUP_WATCH;
 
 export default {
   output: {
@@ -12,13 +8,6 @@ export default {
   },
   plugins: [
     ...getCommonPlugins(),
-    postcss({
-      sourceMap: !production,
-      config: {
-        path: 'postcss.config.js',
-      },
-    }),
-    !production && livereload('public'),
     bundleComponents(),
   ]
 };

@@ -2,7 +2,6 @@ import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 import babel from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
-import livereload from 'rollup-plugin-livereload';
 import path from 'path';
 import getCommonPlugins from './common.config';
 // also leverage netlify builtins -- cache invalidation w/ chunk hashing
@@ -40,15 +39,8 @@ export const module = {
   },
   plugins: [
     ...getCommonPlugins(),
-    postcss({
-      extract: path.resolve('public', 'build', 'bundle.css'),
-      minimize: true,
-      config: {
-        path: 'postcss.config.js',
-      },
-    }),
-    terser(),
-    sizeSnapshot(),
+    production && terser(),
+    production && sizeSnapshot(),
   ],
 };
 
@@ -62,20 +54,11 @@ export const noModule = {
   },
   plugins: [
     ...getCommonPlugins(),
-    postcss({
-      extract: path.resolve('public', 'build', 'bundle.css'),
-      minimize: production,
-      sourceMap: !production,
-      config: {
-        path: 'postcss.config.js',
-      },
-    }),
     babel({
       extensions: [".js", ".mjs", ".html", ".svelte"],
       babelHelpers: 'bundled'
     }),
     !production && serve(),
-    !production && livereload('public'),
     production && terser(),
     production && sizeSnapshot(),
   ],

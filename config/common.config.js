@@ -16,7 +16,16 @@ export default function getCommonPlugins() {
       browser: true,
       dedupe: ['svelte']
     }),
+    postcss({
+      extract: path.resolve('public', 'build', 'bundle.css'),
+      minimize: production,
+      sourceMap: !production,
+      config: {
+        path: 'postcss.config.js',
+      },
+    }),
     commonjs(),
     progress(),
+    !production && livereload('public'),
   ];
 }

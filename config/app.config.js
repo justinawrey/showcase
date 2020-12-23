@@ -1,7 +1,6 @@
 import { terser } from 'rollup-plugin-terser';
 import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 import babel from '@rollup/plugin-babel';
-import postcss from 'rollup-plugin-postcss';
 import path from 'path';
 import getCommonPlugins from './common.config';
 // also leverage netlify builtins -- cache invalidation w/ chunk hashing
